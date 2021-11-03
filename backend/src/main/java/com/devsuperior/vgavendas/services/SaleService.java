@@ -1,6 +1,10 @@
 package com.devsuperior.vgavendas.services;
 
+import java.util.List;
+
 import com.devsuperior.vgavendas.dto.SaleDTO;
+import com.devsuperior.vgavendas.dto.SaleSuccessDTO;
+import com.devsuperior.vgavendas.dto.SaleSumDTO;
 import com.devsuperior.vgavendas.entities.Sale;
 import com.devsuperior.vgavendas.repositories.SaleRepository;
 import com.devsuperior.vgavendas.repositories.SellerRepository;
@@ -25,5 +29,15 @@ public class SaleService {
         sellerRepository.findAll();
         Page<Sale> result = repository.findAll(pageable);
         return result.map(x -> new SaleDTO(x));
+    }
+
+    @Transactional(readOnly = true)
+    public List<SaleSumDTO> amountGroupedBySeller(){
+        return repository.amountGroupedBySeller();
+    }
+
+    @Transactional(readOnly = true)
+    public List<SaleSuccessDTO> successGroupedBySeller(){
+        return repository.successGroupedBySeller();
     }
 }

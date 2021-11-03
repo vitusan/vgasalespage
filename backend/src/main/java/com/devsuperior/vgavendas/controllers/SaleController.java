@@ -1,6 +1,10 @@
 package com.devsuperior.vgavendas.controllers;
 
+import java.util.List;
+
 import com.devsuperior.vgavendas.dto.SaleDTO;
+import com.devsuperior.vgavendas.dto.SaleSuccessDTO;
+import com.devsuperior.vgavendas.dto.SaleSumDTO;
 import com.devsuperior.vgavendas.services.SaleService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +23,20 @@ public class SaleController {
     private SaleService service;
 
     @GetMapping
-    private ResponseEntity<Page<SaleDTO>> findAll(Pageable pageable) {
+    public ResponseEntity<Page<SaleDTO>> findAll(Pageable pageable) {
         Page<SaleDTO> list = service.findAll(pageable);
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping(value = "/amount-by-seller")
+    public ResponseEntity<List<SaleSumDTO>> amountGroupedBySeller() {
+        List<SaleSumDTO> list = service.amountGroupedBySeller();
+        return ResponseEntity.ok(list);
+    }
+
+    @GetMapping(value = "/success-by-seller")
+    public ResponseEntity<List<SaleSuccessDTO>> successGroupedBySeller() {
+        List<SaleSuccessDTO> list = service.successGroupedBySeller();
         return ResponseEntity.ok(list);
     }
 }
