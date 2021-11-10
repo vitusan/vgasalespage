@@ -7,7 +7,7 @@ https://vga-salespage.netlify.app
 
 VGA Sales Page é uma aplicação full stack web construída durante a 5ª edição da **Semana DevSuperior** (#sds5), evento organizado pela [DevSuperior](https://devsuperior.com "Site da DevSuperior").
 
-A aplicação consiste em um dashboard de vendas que recebe os dados do backend implantado no Heroku e os exibe de forma gráfica em diferentes gráficos assim como uma lista de todos os dados armazenados no Banco de Dados.
+A aplicação consiste em um dashboard de vendas que recebe os dados do backend implantado no Heroku e os exibe de forma organizada em diferentes gráficos assim como uma lista de todos os dados armazenados no Banco de Dados.
 
 ## Layout web
 ![Web 1](https://github.com/vitusan/vgasalespage/blob/main/assets/web1.png)
